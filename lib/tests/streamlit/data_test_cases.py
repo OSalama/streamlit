@@ -42,6 +42,7 @@ from tests.streamlit.data_mocks.dask_mocks import Series as DaskSeries
 from tests.streamlit.data_mocks.modin_mocks import DataFrame as ModinDataFrame
 from tests.streamlit.data_mocks.modin_mocks import Series as ModinSeries
 from tests.streamlit.data_mocks.pyspark_mocks import DataFrame as PySparkDataFrame
+from tests.streamlit.data_mocks.pyspark_connect_mocks import DataFrame as PySparkConnectDataFrame
 from tests.streamlit.data_mocks.ray_mocks import Dataset as RayDataset
 from tests.streamlit.data_mocks.ray_mocks import (
     MaterializedDataset as RayMaterializedDataset,
@@ -948,6 +949,26 @@ SHARED_TEST_CASES: list[tuple[str, Any, CaseMetadata]] = [
     (
         "Pyspark DataFrame",
         PySparkDataFrame(
+            pd.DataFrame(
+                [
+                    {"name": "st.text_area", "type": "widget"},
+                    {"name": "st.markdown", "type": "element"},
+                ]
+            )
+        ),
+        CaseMetadata(
+            2,
+            2,
+            DataFormat.PYSPARK_OBJECT,
+            ["st.text_area", "st.markdown"],
+            "dataframe",
+            True,
+            pd.DataFrame,
+        ),
+    ),
+    (
+        "Pyspark Connect DataFrame",
+        PySparkConnectDataFrame(
             pd.DataFrame(
                 [
                     {"name": "st.text_area", "type": "widget"},
