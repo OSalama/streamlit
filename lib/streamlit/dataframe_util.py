@@ -371,8 +371,10 @@ def is_snowpark_row_list(obj: object) -> bool:
 
 
 def is_pyspark_data_object(obj: object) -> bool:
-    """True if obj is a PySpark or PySpark Connect dataframe """
-    return (is_type(obj, _PYSPARK_DF_TYPE_STR) or is_type(obj, _PYSPARK_CONNECT_DF_TYPE_STR)) and has_callable_attr(obj, "toPandas")
+    """True if obj is a PySpark or PySpark Connect dataframe"""
+    return (
+        is_type(obj, _PYSPARK_DF_TYPE_STR) or is_type(obj, _PYSPARK_CONNECT_DF_TYPE_STR)
+    ) and has_callable_attr(obj, "toPandas")
 
 
 def is_dask_object(obj: object) -> bool:

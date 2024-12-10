@@ -41,8 +41,10 @@ from tests.streamlit.data_mocks.dask_mocks import Index as DaskIndex
 from tests.streamlit.data_mocks.dask_mocks import Series as DaskSeries
 from tests.streamlit.data_mocks.modin_mocks import DataFrame as ModinDataFrame
 from tests.streamlit.data_mocks.modin_mocks import Series as ModinSeries
+from tests.streamlit.data_mocks.pyspark_connect_mocks import (
+    DataFrame as PySparkConnectDataFrame,
+)
 from tests.streamlit.data_mocks.pyspark_mocks import DataFrame as PySparkDataFrame
-from tests.streamlit.data_mocks.pyspark_connect_mocks import DataFrame as PySparkConnectDataFrame
 from tests.streamlit.data_mocks.ray_mocks import Dataset as RayDataset
 from tests.streamlit.data_mocks.ray_mocks import (
     MaterializedDataset as RayMaterializedDataset,
